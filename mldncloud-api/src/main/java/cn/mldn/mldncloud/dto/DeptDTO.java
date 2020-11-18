@@ -1,9 +1,9 @@
-package cn.mldn.mldncloud.to;
+package cn.mldn.mldncloud.dto;
 
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class DeptTO implements Serializable {
+public class DeptDTO implements Serializable {
 	private Long deptno ;
 	private String dname ;
 	private String loc ;
