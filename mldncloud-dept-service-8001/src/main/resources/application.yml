@@ -17,6 +17,7 @@ server:
   port: 8001                                      # 服务端口
   
 security:                                         # 安全配置
+  sessions: stateless    # 保持用户session状态
   basic: 
     enabled: true                                 # 启用SpringSecurity的安全配置项
   user:                                           # 用户认证与授权信息
