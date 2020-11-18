@@ -24,6 +24,10 @@
 			<groupId>cn.mldn</groupId>
 			<artifactId>mldncloud-security</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

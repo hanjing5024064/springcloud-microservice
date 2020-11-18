@@ -1,4 +1,6 @@
 spring: 
+  application:
+    name: mldncloud-dept-service                  # 定义微服务名称
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
     url: jdbc:mysql://localhost:3306/dept8001     # 数据库的连接地址
@@ -15,3 +17,8 @@ spring:
     show-sql: true                                # 显示执行的SQL
 server:
   port: 8001                                      # 服务端口
+  
+eureka:
+  client:                                         # 客户端进行Eureka注册的配置
+    service-url:                                  # 定义Eureka服务地址
+      defaultZone: http://eureka-7001.com:7001/eureka
