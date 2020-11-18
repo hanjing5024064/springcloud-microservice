@@ -1,5 +1,13 @@
 server:
   port: 7001                  # 定义运行端口
+
+security:
+  basic:
+    enabled: true         # 启用安全认证处理
+  user:
+    name: edmin           # 用户名
+    password: mldnjava    # 密码
+    
 eureka: 
   server:
     enable-self-preservation: false     # 设置为false表示关闭保护模式
