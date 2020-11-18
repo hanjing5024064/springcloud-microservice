@@ -80,5 +80,6 @@
 	<modules>
 		<module>mldncloud-api</module>
 		<module>mldncloud-dept-service-8001</module>
+		<module>mldncloud-consumer-resttemplate</module>
 	</modules>
 </project>
