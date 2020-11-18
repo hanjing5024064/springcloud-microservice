@@ -29,6 +29,11 @@
 				<artifactId>mldncloud-api</artifactId>
 				<version>${mldncloud.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>cn.mldn</groupId>
+				<artifactId>mldncloud-security</artifactId>
+				<version>${mldncloud.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>mysql</groupId>
@@ -82,5 +87,6 @@
 		<module>mldncloud-dept-service-8001</module>
 		<module>mldncloud-dept-service-swagger</module>
 		<module>mldncloud-consumer-resttemplate</module>
+		<module>mldncloud-security</module>
 	</modules>
 </project>
