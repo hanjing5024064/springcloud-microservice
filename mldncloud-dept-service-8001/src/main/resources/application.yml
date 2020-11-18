@@ -23,8 +23,10 @@ eureka:
     service-url:                                  # 定义Eureka服务地址
       defaultZone: http://eureka-7001.com:7001/eureka
   instance:
+    lease-renewal-interval-in-seconds: 2        # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5     # 如果现在超过了5秒的间隔（默认是90秒）
     instance-id: dept-8001.com                    # 显示主机名称
-    prefer-ip-address: true                       # 访问的路径变为IP地址
+    prefer-ip-address: false                       # 访问的路径变为IP地址
 
 info:
   app.name: mldncloud-dept-service
