@@ -21,8 +21,8 @@ server:
 eureka:
   client:                                         # 客户端进行Eureka注册的配置
     service-url:                                  # 定义Eureka服务地址
-#      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
-      defaultZone: http://edmin:mldnjava@eureka-a.com:7101/eureka,http://edmin:mldnjava@eureka-b.com:7102/eureka,http://edmin:mldnjava@eureka-c.com:7103/eureka
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+#      defaultZone: http://edmin:mldnjava@eureka-a.com:7101/eureka,http://edmin:mldnjava@eureka-b.com:7102/eureka,http://edmin:mldnjava@eureka-c.com:7103/eureka
   instance:
     lease-renewal-interval-in-seconds: 2        # 设置心跳的时间间隔（默认是30秒）
     lease-expiration-duration-in-seconds: 5     # 如果现在超过了5秒的间隔（默认是90秒）
