@@ -22,3 +22,12 @@ eureka:
   client:                                         # 客户端进行Eureka注册的配置
     service-url:                                  # 定义Eureka服务地址
       defaultZone: http://eureka-7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com                    # 显示主机名称
+    prefer-ip-address: true                       # 访问的路径变为IP地址
+
+info:
+  app.name: mldncloud-dept-service
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
