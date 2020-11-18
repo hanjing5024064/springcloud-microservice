@@ -88,5 +88,6 @@
 		<module>mldncloud-dept-service-swagger</module>
 		<module>mldncloud-consumer-resttemplate</module>
 		<module>mldncloud-security</module>
+		<module>mldncloud-eureka-7001</module>
 	</modules>
 </project>
