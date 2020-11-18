@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -17,21 +20,35 @@ public class DeptController {
 	public static final String DEPT_LIST_URL = "http://localhost:8001/dept/list";
 	@Resource
 	private RestTemplate restTemplate; 		// 注入RestTemplate对象
+	@Resource
+	private HttpHeaders headers;			// 注入Http头信息对象
+	
 
+	@SuppressWarnings("unchecked")
 	@GetMapping("/consumer/dept/list")
 	public Object listDeptRest() {
-		return this.restTemplate.getForObject(DEPT_LIST_URL, List.class);
+		List<DeptDTO> allDepts = this.restTemplate
+				.exchange(DEPT_LIST_URL, HttpMethod.GET,
+						new HttpEntity<Object>(this.headers), List.class)
+				.getBody();					// 访问服务设置头信息
+		return allDepts; 
+
 	}
 
 	@GetMapping("/consumer/dept/get")
 	public Object getDeptRest(long deptno) {
-		DeptDTO dept = this.restTemplate.getForObject(DEPT_GET_URL + "/" + deptno, DeptDTO.class);
+		DeptDTO dept = this.restTemplate
+				.exchange(DEPT_GET_URL + "/" + deptno, HttpMethod.GET,
+						new HttpEntity<Object>(this.headers), DeptDTO.class)
+				.getBody();					// 访问服务设置头信息
 		return dept;
 	}
 
 	@GetMapping("/consumer/dept/add")
 	public Object addDeptRest(DeptDTO dept) {	// 传输DeptDTO对象
-		DeptDTO result = this.restTemplate.postForObject(DEPT_ADD_URL, dept, DeptDTO.class);
+		DeptDTO result = this.restTemplate.exchange(DEPT_ADD_URL, HttpMethod.POST,
+				new HttpEntity<Object>(dept, this.headers), DeptDTO.class)
+				.getBody(); 				// 访问服务设置头信息
 		return result;
 	}
 
