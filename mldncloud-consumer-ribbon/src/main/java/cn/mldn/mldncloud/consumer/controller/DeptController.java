@@ -1,9 +1,14 @@
 package cn.mldn.mldncloud.consumer.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -22,6 +27,20 @@ public class DeptController {
 	private RestTemplate restTemplate; 		// 注入RestTemplate对象
 	@Resource
 	private HttpHeaders headers;			// 注入Http头信息对象
+	
+	@Autowired
+	private LoadBalancerClient loadBalancerClient ;	// 客户端信息
+	
+	@GetMapping("/consumer/client") 
+	public Object client() {
+		// 获取指定名称的微服务实例对象
+		ServiceInstance serviceInstance = this.loadBalancerClient.choose("MLDNCLOUD-DEPT-SERVICE") ;
+		Map<String,Object> info = new HashMap<String,Object>() ;
+		info.put("host", serviceInstance.getHost()) ;
+		info.put("port", serviceInstance.getPort()) ;
+		info.put("serviceId", serviceInstance.getServiceId()) ;
+		return info ;
+	}
 
 	@SuppressWarnings("unchecked")
 	@GetMapping("/consumer/dept/list")
