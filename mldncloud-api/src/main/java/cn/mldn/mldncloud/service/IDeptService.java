@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import cn.mldn.mldncloud.dto.DeptDTO;
 import cn.mldn.mldncloud.service.config.FeignClientConfig;
-@FeignClient(value="MLDNCLOUD-DEPT-SERVICE",configuration=FeignClientConfig.class)
+import cn.mldn.mldncloud.service.fallback.DeptServiceFallbackFactory;
+
+@FeignClient(value = "MLDNCLOUD-DEPT-SERVICE", configuration = FeignClientConfig.class, 
+fallbackFactory=DeptServiceFallbackFactory.class)
 public interface IDeptService {
 	@PostMapping("/dept/add")
 	public DeptDTO add(DeptDTO dto) ;							// 增加新部门
