@@ -117,5 +117,7 @@
 		<module>mldncloud-eureka-server-c</module>
 		<module>mldncloud-eureka-profile</module>
 		<module>mldncloud-consumer-ribbon</module>
+		<module>mldncloud-dept-service-8002</module>
+		<module>mldncloud-dept-service-8003</module>
 	</modules>
 </project>

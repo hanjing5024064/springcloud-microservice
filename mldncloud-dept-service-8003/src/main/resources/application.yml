@@ -3,7 +3,7 @@ spring:
     name: mldncloud-dept-service                  # 定义微服务名称
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
-    url: jdbc:mysql://localhost:3306/dept8001     # 数据库的连接地址
+    url: jdbc:mysql://localhost:3306/dept8003     # 数据库的连接地址
     driver-class-name: com.mysql.cj.jdbc.Driver    # 驱动程序
     username: root                                # 用户名
     password: MyMac#123                          # 密码
@@ -16,7 +16,7 @@ spring:
   jpa:                                            # 定义JPA的相关配置项
     show-sql: true                                # 显示执行的SQL
 server:
-  port: 8001                                      # 服务端口
+  port: 8003                                      # 服务端口
   
 eureka:
   client:                                         # 客户端进行Eureka注册的配置
@@ -26,7 +26,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 2        # 设置心跳的时间间隔（默认是30秒）
     lease-expiration-duration-in-seconds: 5     # 如果现在超过了5秒的间隔（默认是90秒）
-    instance-id: dept-8001.com                    # 显示主机名称
+    instance-id: dept-8003.com                    # 显示主机名称
     prefer-ip-address: false                       # 访问的路径变为IP地址
 
 info:
