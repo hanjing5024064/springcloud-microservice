@@ -15,6 +15,10 @@ spring:
       initial-size: 1                             # 初始化连接数
   jpa:                                            # 定义JPA的相关配置项
     show-sql: true                                # 显示执行的SQL
+    open-in-view: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
 server:
   port: 8001                                      # 服务端口
   
