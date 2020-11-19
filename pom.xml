@@ -119,5 +119,6 @@
 		<module>mldncloud-consumer-ribbon</module>
 		<module>mldncloud-dept-service-8002</module>
 		<module>mldncloud-dept-service-8003</module>
+		<module>mldncloud-consummer-feign</module>
 	</modules>
 </project>
