@@ -3,7 +3,7 @@ spring:
     name: mldncloud-dept-service                  # 定义微服务名称
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
-    url: jdbc:mysql://localhost:3306/dept8002     # 数据库的连接地址
+    url: jdbc:mysql://localhost:3306/dept8002?useSSL=false     # 数据库的连接地址
     driver-class-name: com.mysql.cj.jdbc.Driver    # 驱动程序
     username: root                                # 用户名
     password: MyMac#123                          # 密码
