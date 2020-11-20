@@ -123,5 +123,6 @@
 		<module>mldncloud-hystrix-dashboard</module>
 		<module>mldncloud-hystrix-turbine</module>
 		<module>mldncloud-zuul-gateway-9501</module>
+		<module>mldncloud-upload-service-8101</module>
 	</modules>
 </project>
