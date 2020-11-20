@@ -4,6 +4,14 @@ spring:
 server:
   port: 9501                                      # 服务端口
 
+security:
+  basic:
+    enabled: true
+  user:
+    name: zdmin
+    password: mldnjava
+
+
 eureka:
   client:                                         # 客户端进行Eureka注册的配置
     service-url:                                  # 定义Eureka服务地址
