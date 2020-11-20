@@ -17,6 +17,7 @@ zuul:
     "*"
   routes: 
     mldncloud-dept-service: /dept-proxy/**
+    mldncloud-upload-service: /upload-proxy/**
 
 
 eureka:
