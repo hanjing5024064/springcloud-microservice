@@ -11,6 +11,13 @@ security:
     name: zdmin
     password: mldnjava
 
+zuul:
+  prefix: /mldn-proxy          # 定义公共代理前缀
+  ignored-services:             # 禁用微服务列表
+    "*"
+  routes: 
+    mldncloud-dept-service: /dept-proxy/**
+
 
 eureka:
   client:                                         # 客户端进行Eureka注册的配置
