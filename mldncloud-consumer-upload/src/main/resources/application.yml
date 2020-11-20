@@ -1,0 +1,24 @@
+server:
+  port: 8200          # 服务端口
+eureka: 
+  client:             # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+    register-with-eureka: false    # 当前的微服务不注册到eureka之中
+feign:
+  hystrix: 
+    enabled: true
+  compression:
+    request:
+      mime-types:             # 可以被压缩的类型
+      - text/xml
+      - application/xml
+      - application/json
+      min-request-size: 2048  # 超过2048的字节进行压缩
+
+
+logging: 
+  level:
+    cn.mldn.mldncloud.service: DEBUG  # 定义显示转换信息的开发包与日志级别
+ 
+    
