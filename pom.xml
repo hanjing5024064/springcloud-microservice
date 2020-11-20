@@ -121,5 +121,6 @@
 		<module>mldncloud-dept-service-8003</module>
 		<module>mldncloud-consummer-feign</module>
 		<module>mldncloud-hystrix-dashboard</module>
+		<module>mldncloud-hystrix-turbine</module>
 	</modules>
 </project>

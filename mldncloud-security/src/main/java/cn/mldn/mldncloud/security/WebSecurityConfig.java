@@ -4,12 +4,17 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {	// 建立安全配置
+	@Override
+	public void configure(WebSecurity web) throws Exception {				// 覆写web安全配置
+		web.ignoring().antMatchers("/hystrix.stream","/turbine.stream") ;	// 定义忽略验证路径
+	}
 	@Resource
 	public void configGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {								// 配置用户名与密码
