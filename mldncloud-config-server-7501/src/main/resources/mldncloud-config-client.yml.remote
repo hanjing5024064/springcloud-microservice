@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: mldncloud-config-client                  # 定义微服务名称
+server:
+  port: 8101                                      # 服务端口
+---
+spring:
+  profiles: product
+  application:
+    name: mldncloud-config-client                  # 定义微服务名称
+server:
+  port: 8102                                      # 服务端口
+
