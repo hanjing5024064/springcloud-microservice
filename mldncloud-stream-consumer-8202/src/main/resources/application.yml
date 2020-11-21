@@ -1,6 +1,11 @@
 spring: 
   cloud:
     stream:
+      bindings:               # 服务的整合处理
+        mldn_input:               # 通道的名称
+          destination: MLDNExchange     # Exchange名称定义
+          content-type: application/json    # 设置消息类型，本次为对象json
+          binder: defaultRabbit       # 设置要绑定的消息服务的具体设置
       binders:                #　在此处配置要绑定的rabbitmq的服务信息；
         defaultRabbit:            # 表示定义的名称，用于于binding整合
           type: rabbit            # 消息组件类型
@@ -11,11 +16,7 @@ spring:
                 username: mldnjava      # 用户名
                 password: hello       # 密码
                 virtual-host: /       # 虚拟主机
-      bindings:               # 服务的整合处理
-        input:               # 通道的名称
-          destination: MLDNExchange     # Exchange名称定义
-          content-type: application/json    # 设置消息类型，本次为对象json
-          binder: defaultRabbit       # 设置要绑定的消息服务的具体设置
+
   application:
     name: mldncloud-stream-consumer     # 定义微服务名称
 
