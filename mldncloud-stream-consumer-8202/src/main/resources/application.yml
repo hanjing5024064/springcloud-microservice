@@ -1,0 +1,50 @@
+spring: 
+  cloud:
+    stream:
+      binders:                #　在此处配置要绑定的rabbitmq的服务信息；
+        defaultRabbit:            # 表示定义的名称，用于于binding整合
+          type: rabbit            # 消息组件类型
+          environment:            # 设置rabbitmq的相关的环境配置
+            spring: 
+              rabbitmq:
+                addresses: rabbitmq-single  # 消息组件主机
+                username: mldnjava      # 用户名
+                password: hello       # 密码
+                virtual-host: /       # 虚拟主机
+      bindings:               # 服务的整合处理
+        input:               # 通道的名称
+          destination: MLDNExchange     # Exchange名称定义
+          content-type: application/json    # 设置消息类型，本次为对象json
+          binder: defaultRabbit       # 设置要绑定的消息服务的具体设置
+  application:
+    name: mldncloud-stream-consumer     # 定义微服务名称
+
+server:
+  port: 8202                                      # 服务端口
+
+eureka:
+  client:                                         # 客户端进行Eureka注册的配置
+    service-url:                                  # 定义Eureka服务地址
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2        # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5     # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: dept-8001.com                    # 显示主机名称
+    prefer-ip-address: false                       # 访问的路径变为IP地址
+
+info:
+  app.name: mldncloud-dept-service
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+
+security:
+  sessions: stateless    # 保持用户session状态
+  basic: 
+    enabled: true                                 # 启用SpringSecurity的安全配置项
+  user:                                           # 用户认证与授权信息
+    name: mldnjava                                # 认证用户名
+    password: hello                               # 认证密码
+    role:                                         # 授权角色
+    - USER
