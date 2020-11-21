@@ -1,0 +1,9 @@
+spring: #bootstrap.yml对应系统级的资源配置，优先级更高
+  cloud: 
+    config:                 # Config服务器
+      name: mldncloud-config-client    # 定义要读取的资源文件的名称
+      profile: product                    # 定义profile的 名称
+      label: master               # 定义配置文件所在的分支
+      uri: http://config-7501.com:7501  # SpringCloudConfig的服务地址
+      username: mldnjava  # 连接的用户名
+      password: hello   # 连接的密码

@@ -126,5 +126,6 @@
 		<module>mldncloud-upload-service-8101</module>
 		<module>mldncloud-consumer-upload</module>
 		<module>mldncloud-config-server-7501</module>
+		<module>mldncloud-config-client</module>
 	</modules>
 </project>
