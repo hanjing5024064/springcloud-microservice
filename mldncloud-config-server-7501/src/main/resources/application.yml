@@ -1,7 +1,17 @@
 spring:
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: rabbitmq-single   # RabbitMQ主机服务地址
+    port: 5672    # RabbitMQ的监听端口
+    username: mldn  # 用户名
+    password: java # 密码
   application:
     name: mldncloud-config-server                  # 定义微服务名称
   cloud:                      # 进行SpringCloud的相关配置
+    bus: 
+      trace: 
+        enabled: true   # 开启Bus总线服务, 跟踪轨迹信息 http://mldnjava:hello@config-7501.com:7501/trace
+                        # 执行命令手动刷新：curl -X POST http://mldnjava:hello@config-7501.com:7501/bus/refresh
+                        # 动态刷新，需要在Git库中，Setting/Webhooks设置： http://mldnjava:hello@config-7501.com:7501/bus/refresh
     config:                   # 进行SpringCloudConfig的相关配置
       server:                     # 设置服务的连接地址
         encrypt:

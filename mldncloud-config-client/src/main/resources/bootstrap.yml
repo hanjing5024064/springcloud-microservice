@@ -1,4 +1,9 @@
 spring:
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: rabbitmq-single   # RabbitMQ主机服务地址
+    port: 5672    # RabbitMQ的监听端口
+    username: mldn  # 用户名
+    password: java # 密码
   cloud: 
     config:                 # Config服务器
       name: mldncloud-config-client    # 定义要读取的资源文件的名称

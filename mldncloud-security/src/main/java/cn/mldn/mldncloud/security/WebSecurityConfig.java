@@ -11,15 +11,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {	// 建立安全配置
-	@Override
-	public void configure(WebSecurity web) throws Exception {				// 覆写web安全配置
-		web.ignoring().antMatchers("/hystrix.stream","/turbine.stream") ;	// 定义忽略验证路径
-	}
+//	@Override
+//	public void configure(WebSecurity web) throws Exception {				// 覆写web安全配置
+//		web.ignoring().antMatchers("/hystrix.stream","/turbine.stream") ;	// 定义忽略验证路径
+//	}
 	@Resource
 	public void configGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {								// 配置用户名与密码
 		auth.inMemoryAuthentication().withUser("mldnjava").password("hello")
-				.roles("USER").and().withUser("admin").password("hello")
+				.roles("USER","ACTUATOR").and().withUser("admin").password("hello")
 				.roles("USER", "ADMIN").and();
 	}
 	@Override
