@@ -1,5 +1,5 @@
 server:
-  port: 8601          # 配置监听端口号
+  port: 8601          # 配置监听端口号， http://zipkin.com:8601 查询时间修改下，查询所有链条
 spring: 
   application:
     name: mldncloud-zipkin-server
