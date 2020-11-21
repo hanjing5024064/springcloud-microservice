@@ -129,5 +129,6 @@
 		<module>mldncloud-config-client</module>
 		<module>mldncloud-config-server-7502</module>
 		<module>mldncloud-config-server-7503</module>
+		<module>mldncloud-stream-provider-8201</module>
 	</modules>
 </project>
