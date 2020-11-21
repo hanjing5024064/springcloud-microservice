@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mldncloud-config-server                  # 定义微服务名称
+  cloud:                              # 进行SpringCloud的相关配置
+    config:                         # 进行SpringCloudConfig的相关配置
+      server:                                   # 设置服务的连接地址
+        git:              # 本次使用的是GIT作为仓库的管理，所以需要设置GIT的连接地址
+#          uri: git@github.com:hanjing5024064/mldncloud.git
+           uri: https://github.com/hanjing5024064/mldncloud.git
+server:
+  port: 7501                                      # 服务端口
+eureka:
+  client:                                         # 客户端进行Eureka注册的配置
+    service-url:                                  # 定义Eureka服务地址
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+  instance:
+    instance-id: config-7501.com                    # 显示主机名称
+
+info:
+  app.name: mldncloud-config-server
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+

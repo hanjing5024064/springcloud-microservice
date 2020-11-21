@@ -125,5 +125,6 @@
 		<module>mldncloud-zuul-gateway-9501</module>
 		<module>mldncloud-upload-service-8101</module>
 		<module>mldncloud-consumer-upload</module>
+		<module>mldncloud-config-server-7501</module>
 	</modules>
 </project>
