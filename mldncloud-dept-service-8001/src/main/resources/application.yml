@@ -1,4 +1,9 @@
 spring: 
+  zipkin:
+    base-url: http://zipkin.com:8601  # 所有的数据提交到此服务之中
+  sleuth:
+    sampler:
+      percentage: 1.0   # 定义抽样比率，默认为0.1
   application:
     name: mldncloud-dept-service                  # 定义微服务名称
   datasource:

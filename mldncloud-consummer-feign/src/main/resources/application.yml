@@ -17,7 +17,15 @@ feign:
       - application/xml
       - application/json
       min-request-size: 2048  # 超过2048的字节进行压缩
-
+spring:
+  zipkin:
+    base-url: http://zipkin.com:8601  # 所有的数据提交到此服务之中
+  sleuth:
+    sampler:
+      percentage: 1.0   # 定义抽样比率，默认为0.1
+  application:
+    name: mldncloud-consumer
+    
 logging: 
   level:
     cn.mldn.mldncloud.service: DEBUG  # 定义显示转换信息的开发包与日志级别

@@ -1,0 +1,5 @@
+server:
+  port: 8601          # 配置监听端口号
+spring: 
+  application:
+    name: mldncloud-zipkin-server

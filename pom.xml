@@ -131,5 +131,6 @@
 		<module>mldncloud-config-server-7503</module>
 		<module>mldncloud-stream-provider-8201</module>
 		<module>mldncloud-stream-consumer-8202</module>
+		<module>mldncloud-sleuth-8601</module>
 	</modules>
 </project>
