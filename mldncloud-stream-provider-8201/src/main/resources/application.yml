@@ -1,6 +1,11 @@
 spring: 
   cloud:
     stream:
+      rabbit: 
+        bindings:
+          mldn_output:
+            producer: # 进行生产端配置
+              routing-key-expression: '''mldn-key'''
       bindings:               # 服务的整合处理
         mldn_output:               # 通道的名称
           destination: MLDNExchange     # Exchange名称定义

@@ -1,6 +1,11 @@
 spring: 
   cloud:
     stream:
+      rabbit: 
+        bindings:
+          mldn_input:
+            consumer: # 进行消费端配置
+              bindingRoutingKey: mldn-key # 设置一个RoutingKey信息 
       bindings:               # 服务的整合处理
         mldn_input:               # 通道的名称
           destination: MLDNExchange     # Exchange名称定义
