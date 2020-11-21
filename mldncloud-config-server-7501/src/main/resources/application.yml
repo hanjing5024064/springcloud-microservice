@@ -7,6 +7,9 @@ spring:
         git:              # 本次使用的是GIT作为仓库的管理，所以需要设置GIT的连接地址
 #          uri: git@github.com:hanjing5024064/mldncloud.git
            uri: https://github.com/hanjing5024064/mldncloud.git
+           #uri: git@github.com:hanjing5024064/{application}    # 根据应用服务的名称来连接仓库
+           search-paths: # 设置配置文件查找的匹配目录
+            - mldncloud-config-client       # 匹配目录, 当目录很多时，如果目录都是以mldncloud-开头，可以通过mldncloud-*匹配
 server:
   port: 7501                                      # 服务端口
 eureka:
