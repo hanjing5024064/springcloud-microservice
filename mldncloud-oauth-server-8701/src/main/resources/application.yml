@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: mldncloud-oauth-server                  # 定义微服务名称
+server:
+  port: 8701                                      # 服务端口
+
+info:
+  app.name: mldncloud-oauth-server
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
