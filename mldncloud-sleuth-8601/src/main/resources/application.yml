@@ -1,5 +1,20 @@
 server:
-  port: 8601          # 配置监听端口号， http://zipkin.com:8601 查询时间修改下，查询所有链条
-spring: 
+  port: 8601          # 配置监听端口号
+spring:
+  rabbitmq:
+    host: localhost   # 消息主机
+    port: 5672    # 连接端口
+    username: guest  # 用户名
+    password: guest # 密码
+    virtual-host: /   # 虚拟主机
+  datasource: 
+    url: jdbc:mysql://localhost:3306/zipkin?useSSL=false  # 连接地址
+    username: root  # 用户名
+    password: MyMac#123  # 密码
+    driver-class-name: com.mysql.cj.jdbc.Driver # 驱动程序
+    initialize: true # 初始化
   application:
     name: mldncloud-zipkin-server
+zipkin: 
+  storage:  # 设置zipkin收集的信息通过mysql进行存储
+    type: mysql # 数据库存储

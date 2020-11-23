@@ -1,6 +1,12 @@
 spring: 
   application:
     name: mldncloud-dept-service                  # 定义微服务名称
+  rabbitmq:
+    host: localhost   # 消息主机
+    port: 5672    # 连接端口
+    username: guest  # 用户名
+    password: guest # 密码
+    virtual-host: /   # 虚拟主机
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
     url: jdbc:mysql://localhost:3306/dept8002?useSSL=false     # 数据库的连接地址

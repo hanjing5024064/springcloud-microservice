@@ -6,6 +6,12 @@ spring:
       percentage: 1.0   # 定义抽样比率，默认为0.1
   application:
     name: mldncloud-zuul-gateway                  # 定义微服务名称
+  rabbitmq:
+    host: localhost #rabbitmq-single   # 消息主机
+    port: 5672    # 连接端口
+    username: guest  # 用户名
+    password: guest # 密码
+    virtual-host: /   # 虚拟主机
 server:
   port: 9501                                      # 服务端口
 

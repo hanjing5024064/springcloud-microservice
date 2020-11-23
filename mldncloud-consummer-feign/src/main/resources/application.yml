@@ -25,6 +25,12 @@ spring:
       percentage: 1.0   # 定义抽样比率，默认为0.1
   application:
     name: mldncloud-consumer
+  rabbitmq:
+    host: localhost   # 消息主机
+    port: 5672    # 连接端口
+    username: guest  # 用户名
+    password: guest # 密码
+    virtual-host: /   # 虚拟主机
     
 logging: 
   level:
