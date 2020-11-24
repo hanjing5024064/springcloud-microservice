@@ -1,6 +1,20 @@
 spring:
   application:
     name: mldncloud-oauth-server                  # 定义微服务名称
+  datasource: 
+    type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
+    url: jdbc:mysql://localhost:3306/mldn?useSSL=false     # 数据库的连接地址
+    driver-class-name: com.mysql.cj.jdbc.Driver    # 驱动程序
+    username: root                                # 用户名
+    password: MyMac#123                          # 密码
+    dbcp2:                                        # 数据库连接池配置
+      min-idle: 1                                 # 最小维持连接数
+      max-idle: 1                                 # 最大维持连接数
+      max-total: 1                                # 最大的可用连接数
+      max-wait-millis: 200                        # 最大等待时间
+      initial-size: 1                             # 初始化连接数
+  jpa:                                            # 定义JPA的相关配置项
+    show-sql: true                                # 显示执行的SQL
 server:
   port: 8701                                      # 服务端口
 
