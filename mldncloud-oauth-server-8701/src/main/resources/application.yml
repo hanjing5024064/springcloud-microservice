@@ -17,7 +17,11 @@ spring:
     show-sql: true                                # 显示执行的SQL
 server:
   port: 8701                                      # 服务端口
-
+security:
+  oauth2:
+    resource:
+      filter-order: 3    # 对于Resource的过滤执行流程定义顺序
+      
 info:
   app.name: mldncloud-oauth-server
   company.name: www.mldn.cn
