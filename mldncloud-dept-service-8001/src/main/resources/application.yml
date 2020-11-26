@@ -52,11 +52,17 @@ info:
 
 
 security:
-  sessions: stateless    # 保持用户session状态
-  basic: 
-    enabled: true                                 # 启用SpringSecurity的安全配置项
-  user:                                           # 用户认证与授权信息
-    name: mldnjava                                # 认证用户名
-    password: hello                               # 认证密码
-    role:                                         # 授权角色
-    - USER
+  oauth2:
+    resource:
+      id: dept-service                                  # 定义标记 
+      user-info-uri: http://oauth-server.com:8701/user  # 资源路径
+      prefer-token-info: false                          # 必须在有token存在的情况下才可以获取资源项
+      
+#  sessions: stateless    # 保持用户session状态
+#  basic: 
+#    enabled: true                                 # 启用SpringSecurity的安全配置项
+#  user:                                           # 用户认证与授权信息
+#    name: mldnjava                                # 认证用户名
+#    password: hello                               # 认证密码
+#    role:                                         # 授权角色
+#    - USER

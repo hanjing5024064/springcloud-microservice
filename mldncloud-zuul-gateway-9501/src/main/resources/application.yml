@@ -1,26 +1,19 @@
 spring:
-  zipkin: 
-    base-url: http://zipkin.com:8601  # 所有的数据提交到此服务之中
-  sleuth:
-    sampler:
-      percentage: 1.0   # 定义抽样比率，默认为0.1
   application:
     name: mldncloud-zuul-gateway                  # 定义微服务名称
-  rabbitmq:
-    host: localhost #rabbitmq-single   # 消息主机
-    port: 5672    # 连接端口
-    username: guest  # 用户名
-    password: guest # 密码
-    virtual-host: /   # 虚拟主机
 server:
   port: 9501                                      # 服务端口
 
 security:
-  basic:
-    enabled: true
-  user:
-    name: zdmin
-    password: mldnjava
+  oauth2:
+    client:                                   # 配置客户信息
+      user-authorization-uri: http://oauth-server.com:8701/oauth/authorize
+      access-token-uri: http://oauth-server.com:8701/oauth/token
+      client-id: cmldn                        # 客户id
+      client-secret: cjava                  # 客户密码
+    resource:                                 # 配置资源访问
+      user-info-uri: http://oauth-server.com:8701/user
+
 
 zuul:
   prefix: /mldn-proxy          # 定义公共代理前缀
@@ -28,7 +21,7 @@ zuul:
     "*"
   routes: 
     mldncloud-dept-service: /dept-proxy/**
-    mldncloud-upload-service: /upload-proxy/**
+  sensitiveHeaders: Cookie,Set-Cookie
 
 
 eureka:

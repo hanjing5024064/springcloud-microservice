@@ -1,11 +1,10 @@
 package cn.mldn.mldncloud.rest;
 
-import java.util.ArrayList;
-
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,12 +44,9 @@ public class DeptRest {
 		return this.deptService.get(deptno)  ;	// 查询部门信息
 	}
 	@GetMapping("/dept/list")
-	@HystrixCommand(fallbackMethod="listFallback")// Hystrix监控注解,当list方法执行有问题时会自动调用listFallback()方法进行失败处理
+	@HystrixCommand								// Hystrix监控注解
+	@PreAuthorize("hasAuthority('ADMIN')")		// 具有ADMIN角色的用户才可以访问
 	public Object list() {
 		return this.deptService.list() ;		// 部门信息列表
-	}
-	
-	public Object listFallback() {
-		return new ArrayList<DeptDTO>();
 	}
 }
